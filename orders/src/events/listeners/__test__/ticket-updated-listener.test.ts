@@ -49,7 +49,7 @@ it('finds, updates, and saves a ticket', async () => {
     expect(updatedTicket!.title).toEqual(data.title);
     expect(updatedTicket!.price).toEqual(data.price);
     expect(updatedTicket!.version).toEqual(data.version);
-}, 5000000000000);
+}, 5000);
 
 it('acks the message', async () => {
     const { listener, data, msg } = await setup();
@@ -59,7 +59,7 @@ it('acks the message', async () => {
 
     // Write assertions to make sure ack function is called!
     expect(msg.ack).toHaveBeenCalled();
-});
+}, 5000);
 
 it('does not call ack if the event has a skipped version number', async () => {
     const { listener, data, msg } = await setup();
@@ -73,4 +73,4 @@ it('does not call ack if the event has a skipped version number', async () => {
 
     // Write assertions to make sure ack function is called!
     expect(msg.ack).not.toHaveBeenCalled();
-});
+}, 5000);
